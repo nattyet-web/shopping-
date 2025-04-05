@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product 1 - My Shop</title>
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
-    <header>
-        <h1>Product 1 Details</h1>
-    </header>
+  <div class="product-detail" id="product-detail"></div>
 
-    <main>
-        <div id="product-details">
-            <!-- Product details will be dynamically inserted here by JavaScript -->
-        </div>
-    </main>
+  <script>
+    const productId = "1"; // Change this for product2, product3, etc.
 
-    <footer>
-        <p>&copy; 2025 My Shop</p>
-    </footer>
-
-    <script src="../js/script.js"></script>
+    fetch("../products.json")
+      .then(res => res.json())
+      .then(data => {
+        const product = data.products.find(p => p.id === productId);
+        if (product) {
+          document.getElementById('product-detail').innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p class="price">$${product.price}</p>
+            <p>${product.description}</p>
+            <button>Add to Cart</button>
+          `;
+        } else {
+          document.getElementById('product-detail').innerHTML = '<p>Product not found.</p>';
+        }
+      });
+  </script>
 </body>
 </html>
