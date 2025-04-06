@@ -82,6 +82,44 @@ button {
   border-radius: 25px;
   cursor: pointer;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555; /* optional: change color on hover */
+}
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-links a {
+  color: white;
+  font-weight: bold;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
 
 button:hover {
   background: #333;
